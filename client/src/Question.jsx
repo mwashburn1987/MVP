@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-absolute-path */
 import React, { useState } from 'react';
@@ -22,23 +23,56 @@ import working from '/client/src/DoggoPics/workingdog.jpg';
 import './Question.css';
 
 const Question = (props) => {
-    const fluffy = 'cat';
+    const imageClicked = (event) => {
+        props.handleClick(props.q, event.target.name);
+    };
     return (
         <div className="question-container">
-            {props.q === 'q1' && (
+            {props.q === 1 && (
                 <div className="numbered-question">
                     <div className="dog-images">
-                        <label>Would you prefer a less active dog?</label>
-                        <img className="dog-img" src={lazy} />
+                        <label>I can't wait to take my dog hunting.</label>
+                        <img
+                            name="hunting"
+                            className="dog-img"
+                            src={hunting}
+                            onClick={imageClicked}
+                        />
+                    </div>
+                    <div className="question-buttons-container">
+                        <button className="question-btn">
+                            I just want a best friend! No hunting or working
+                            necessary!
+                        </button>
+                        <button className="question-btn">DOGGO TIME!</button>
+                    </div>
+                    <div className="dog-images">
+                        <label>I will need a working dog. </label>
+                        <img
+                            name="working"
+                            className="dog-img"
+                            src={working}
+                            onClick={imageClicked}
+                        />
+                    </div>
+                </div>
+            )}
+
+            {props.q === 2 && (
+                <div className="numbered-question">
+                    <div className="dog-images">
+                        <label> I'd love a lazy dog!</label>
+                        <img name="lazy" className="dog-img" src={lazy} />
                     </div>
                     <div className="question-buttons-container">
                         <button className="question-btn"> No preference</button>
                         <button className="question-btn">
-                            I've answered enough questions, give me doggo!{' '}
+                            I've answered enough questions, give me doggo!
                         </button>
                     </div>
-                    <div>
-                        <img className="dog-img" src={active} />
+                    <div className="dog-images">
+                        <label>I want active dog to fit my lifestyle. </label>
+                        <img name="active" className="dog-img" src={active} />
                     </div>
                 </div>
             )}
