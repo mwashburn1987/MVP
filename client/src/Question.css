@@ -2,6 +2,12 @@
     width: 18vw;
     height: 27vh;
     border-radius: 10px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+.size {
+    width: 13vw;
+    height: 21vh;
 }
 .numbered-question {
     display: flex;
@@ -9,8 +15,10 @@
     justify-content: space-between;
 }
 .dog-images {
+    width: 20vw;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
