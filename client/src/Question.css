@@ -30,13 +30,15 @@
     justify-content: center;
 }
 .question-btn {
-    width: 8vw;
+    width: 11vw;
     height: auto;
     text-align: center;
     font-family: 'Dosis';
-    font-size: 12px;
+    font-size: 22px;
     font-weight: 700;
     border-radius: 5px;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 label {
     font-size: 26px;

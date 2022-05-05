@@ -24,6 +24,12 @@ const SelectedDoggo = (props) => (
                     Local Humane Society
                 </a>
             </h3>
+            <button
+                className="modal-btn"
+                onClick={() => window.location.reload(false)}
+            >
+                Start Over
+            </button>
         </div>
     </div>
 );

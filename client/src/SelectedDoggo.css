@@ -24,6 +24,7 @@ h3 {
     transform: translate(-50%, -50%);
     background-color: #353d60;
     border-radius: 45px;
+    overflow: auto;
 }
 .Overlay {
     position: fixed;
@@ -67,6 +68,20 @@ h3 {
     justify-content: center;
 }
 .selected-logo {
+    object-fit: cover;
     width: 4vw;
     height: auto;
+}
+.modal-btn {
+    background-color: #f2cd6e;
+    color: rgb(43, 41, 41);
+    width: 7vw;
+    height: auto;
+    text-align: center;
+    font-family: 'Dosis';
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 5px;
+    margin-left: 6px;
+    margin-right: 6px;
 }

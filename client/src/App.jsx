@@ -1,9 +1,9 @@
+/* eslint-disable import/no-absolute-path */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import './App.css';
-import { AnimatePresence } from 'framer-motion';
 import Question from './Question.jsx';
 import SelectedDoggo from './SelectedDoggo.jsx';
 import ybf from '/client/src/ybflogos/ybflogotransparent.png';
@@ -31,30 +31,32 @@ const App = () => {
         a6: false,
         a7: false,
     });
-    const [previousDoggos, setPreviousDoggos] = useState([]);
     const [activeDoggos, setActiveDoggos] = useState([]);
     const [intro, setIntro] = useState(true);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [yourBestFriend, setYourBestFriend] = useState(null);
 
+    // opens modal on click
+    const openModal = () => {
+        setModalIsOpen(true);
+        console.log('openModal has been called: ', modalIsOpen);
+    };
+    // closes on click out
+    const closeModal = () => {
+        setModalIsOpen(false);
+        console.log(modalIsOpen);
+    };
     const selectDoggo = () => {
-        // if (activeDoggos.length === 0) {
-        //     getAllDoggos();
-        // }
         setYourBestFriend(
             activeDoggos[Math.floor(Math.random() * activeDoggos.length)]
         );
-        // if (yourBestFriend) {
         openModal();
-        // }
-        //
     };
 
+    // handles each client selection on picture/button click
     const handleClick = (ansNum, ansText) => {
-        // console.log('answer clicked', ansText);
         const answer = `a${ansNum}`;
         const ansObj = { ...answers };
-        console.log(answer);
         ansObj[answer] = ansText;
         setAnswers(ansObj);
 
@@ -63,28 +65,42 @@ const App = () => {
                 setActiveDoggos(answerOne(ansText));
                 break;
             case 'a2':
-                setPreviousDoggos(activeDoggos);
+                if (answerTwo(ansText).length === 0) {
+                    selectDoggo();
+                }
                 setActiveDoggos(answerTwo(ansText));
-                console.log(activeDoggos);
                 break;
             case 'a3':
-                setPreviousDoggos(activeDoggos);
+                if (answerThree(ansText).length === 0) {
+                    selectDoggo();
+                }
                 setActiveDoggos(answerThree(ansText));
                 break;
             case 'a4':
-                setPreviousDoggos(activeDoggos);
+                if (answerFour(ansText).length === 0) {
+                    selectDoggo();
+                }
                 setActiveDoggos(answerFour(ansText));
+
                 break;
             case 'a5':
-                setPreviousDoggos(activeDoggos);
+                if (answerFive(ansText).length === 0) {
+                    selectDoggo();
+                }
                 setActiveDoggos(answerFive(ansText));
+
                 break;
             case 'a6':
-                setPreviousDoggos(activeDoggos);
+                if (answerSix(ansText).length === 0) {
+                    selectDoggo();
+                }
                 setActiveDoggos(answerSix(ansText));
+
                 break;
             case 'a7':
-                setPreviousDoggos(activeDoggos);
+                if (answerSeven(ansText).length === 0) {
+                    selectDoggo();
+                }
                 setActiveDoggos(answerSeven(ansText));
                 selectDoggo();
 
@@ -95,20 +111,12 @@ const App = () => {
         answerOne(ansText);
     };
 
+    // gets past the intro
     const introClick = () => {
         setIntro(false);
     };
 
-    const openModal = () => {
-        setModalIsOpen(true);
-        console.log('openModal has been called: ', modalIsOpen);
-    };
-
-    const closeModal = () => {
-        setModalIsOpen(false);
-        console.log(modalIsOpen);
-    };
-
+    // on load we get all DOGGOS!
     useEffect(() => {
         getDoggos().then((res) => {
             // console.log(res);
@@ -118,6 +126,7 @@ const App = () => {
         // console.log(someDoggos);
         // setActiveDoggos(returnAllDoggos());
     }, []);
+
     return (
         <>
             <div className="App">
@@ -132,7 +141,9 @@ const App = () => {
                                 any point if you would like us to select a
                                 random doggo from the questions you've answered
                                 you can click the second button to have us pick
-                                a random pup!
+                                a random pup! If at any point your selections
+                                would result in zero doggos, we will select a
+                                doggo from your previous answer!
                             </p>
                         </div>
                         <div className="question-buttons-container">

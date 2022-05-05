@@ -327,11 +327,16 @@ const Question = (props) => {
                     </div>
                     <div className="dog-images">
                         <label>20-50lbs </label>
-                        <img
+                        <motion.img
                             name="medium"
                             className="dog-img size"
                             src={medium}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                     <div className="question-buttons-container">
