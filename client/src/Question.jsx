@@ -2,6 +2,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-absolute-path */
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import active from '/client/src/DoggoPics/activedog.jpg';
 import cuddly from '/client/src/DoggoPics/cuddlydog.jpg';
@@ -23,6 +24,15 @@ import working from '/client/src/DoggoPics/workingdog.jpg';
 import './Question.css';
 
 const Question = (props) => {
+    const glowVariants = {
+        initial: {
+            opacity: 0,
+        },
+        hover: {
+            opacity: 1,
+        },
+    };
+
     const imageClicked = (event) => {
         props.handleClick(props.q, event.target.name);
     };
@@ -31,12 +41,19 @@ const Question = (props) => {
             {props.q === 1 && (
                 <div className="numbered-question">
                     <div className="dog-images">
-                        <label>I can't wait to take my dog hunting.</label>
-                        <img
+                        <label className="question-labels">
+                            I can't wait to take my dog hunting.
+                        </label>
+                        <motion.img
                             name="hunting"
                             className="dog-img"
                             src={hunting}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                     <div className="question-buttons-container">
@@ -48,15 +65,28 @@ const Question = (props) => {
                             I just want a best friend! No hunting or working
                             necessary!
                         </button>
-                        <button className="question-btn">DOGGO TIME!</button>
+
+                        <button
+                            onClick={props.selectDoggo}
+                            className="question-btn"
+                        >
+                            DOGGO TIME!
+                        </button>
                     </div>
                     <div className="dog-images">
-                        <label>I will need a working dog. </label>
-                        <img
+                        <label className="question-labels">
+                            I will need a working dog.{' '}
+                        </label>
+                        <motion.img
                             name="working"
                             className="dog-img"
                             src={working}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                 </div>
@@ -65,14 +95,19 @@ const Question = (props) => {
             {props.q === 2 && (
                 <div className="numbered-question">
                     <div className="dog-images">
-                        <label>
+                        <label className="question-labels">
                             I'm looking for a dog to protect me and my family.
                         </label>
-                        <img
+                        <motion.img
                             name="protective"
                             className="dog-img"
                             src={protective}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                     <div className="question-buttons-container">
@@ -84,19 +119,27 @@ const Question = (props) => {
                             {' '}
                             I don't mind either way.
                         </button>
-                        <button className="question-btn">
+                        <button
+                            className="question-btn"
+                            onClick={props.selectDoggo}
+                        >
                             I've answered enough questions, give me doggo!
                         </button>
                     </div>
                     <div className="dog-images">
-                        <label>
+                        <label className="question-labels">
                             I do not want a protective dog, they're too much.{' '}
                         </label>
-                        <img
+                        <motion.img
                             name="noProtect"
                             className="dog-img"
                             src={noProtect}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                 </div>
@@ -105,12 +148,20 @@ const Question = (props) => {
             {props.q === 3 && (
                 <div className="numbered-question">
                     <div className="dog-images">
-                        <label> I'd love a lazy dog!</label>
-                        <img
+                        <label className="question-labels">
+                            {' '}
+                            I'd love a lazy dog!
+                        </label>
+                        <motion.img
                             name="lazy"
                             className="dog-img"
                             src={lazy}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                     <div className="question-buttons-container">
@@ -121,17 +172,27 @@ const Question = (props) => {
                         >
                             Active or lazy? It's all the same!{' '}
                         </button>
-                        <button className="question-btn">
+                        <button
+                            onClick={props.selectDoggo}
+                            className="question-btn"
+                        >
                             I've answered enough questions, give me doggo!
                         </button>
                     </div>
                     <div className="dog-images">
-                        <label>I want active dog to fit my lifestyle. </label>
-                        <img
+                        <label className="question-labels">
+                            I want active dog to fit my lifestyle.{' '}
+                        </label>
+                        <motion.img
                             name="active"
                             className="dog-img"
                             src={active}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                 </div>
@@ -140,14 +201,19 @@ const Question = (props) => {
             {props.q === 4 && (
                 <div className="numbered-question">
                     <div className="dog-images">
-                        <label>
+                        <label className="question-labels">
                             I'm looking for a dog who likes to be on their own{' '}
                         </label>
-                        <img
+                        <motion.img
                             name="independent"
                             className="dog-img"
                             src={independent}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                     <div className="question-buttons-container">
@@ -159,19 +225,27 @@ const Question = (props) => {
                             {' '}
                             Who cares? Doge will have me, I will have doge.
                         </button>
-                        <button className="question-btn">
+                        <button
+                            onClick={props.selectDoggo}
+                            className="question-btn"
+                        >
                             I've answered enough questions, give me doggo!
                         </button>
                     </div>
                     <div className="dog-images">
-                        <label>
+                        <label className="question-labels">
                             I want a social dog who loves to be around people.{' '}
                         </label>
-                        <img
+                        <motion.img
                             name="social"
                             className="dog-img"
                             src={social}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                 </div>
@@ -180,12 +254,20 @@ const Question = (props) => {
             {props.q === 5 && (
                 <div className="numbered-question">
                     <div className="dog-images">
-                        <label> I'm looking for a smart doggo!</label>
-                        <img
+                        <label className="question-labels">
+                            {' '}
+                            I'm looking for a smart doggo!
+                        </label>
+                        <motion.img
                             name="smart"
                             className="dog-img"
                             src={smart}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                     <div className="question-buttons-container">
@@ -197,20 +279,28 @@ const Question = (props) => {
                             Intelligence doesn't matter, I just want to love
                             doge.
                         </button>
-                        <button className="question-btn">
+                        <button
+                            onClick={props.selectDoggo}
+                            className="question-btn"
+                        >
                             I've answered enough questions, give me doggo!
                         </button>
                     </div>
                     <div className="dog-images">
-                        <label>
+                        <label className="question-labels">
                             Smart dogs are boring, give me a dog that doesn't
                             always know what's going on.{' '}
                         </label>
-                        <img
+                        <motion.img
                             name="notsmart"
                             className="dog-img"
                             src={notSmart}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                 </div>
@@ -219,12 +309,20 @@ const Question = (props) => {
             {props.q === 6 && (
                 <div className="numbered-question">
                     <div className="dog-images">
-                        <label> less than 20lbs </label>
-                        <img
+                        <label className="question-labels">
+                            {' '}
+                            less than 20lbs{' '}
+                        </label>
+                        <motion.img
                             name="small"
                             className="dog-img size"
                             src={small}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                     <div className="dog-images">
@@ -244,26 +342,39 @@ const Question = (props) => {
                         >
                             All sizes are welcome in my home.{' '}
                         </button>
-                        <button className="question-btn">
+                        <button
+                            onClick={props.selectDoggo}
+                            className="question-btn"
+                        >
                             I've answered enough questions, give me doggo!
                         </button>
                     </div>
                     <div className="dog-images">
-                        <label> 50-70lbs </label>
-                        <img
+                        <label className="question-labels"> 50-70lbs </label>
+                        <motion.img
                             name="large"
                             className="dog-img size"
                             src={large}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                     <div className="dog-images">
                         <label> 70+lbs </label>
-                        <img
+                        <motion.img
                             name="huge"
                             className="dog-img size"
                             src={huge}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                 </div>
@@ -272,15 +383,19 @@ const Question = (props) => {
             {props.q === 7 && (
                 <div className="numbered-question">
                     <div className="dog-images">
-                        <label>
-                            {' '}
+                        <label className="question-labels">
                             Give me all the snuggles, I love affection
                         </label>
-                        <img
+                        <motion.img
                             name="affectionate"
                             className="dog-img"
                             src={cuddly}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                     <div className="question-buttons-container">
@@ -292,20 +407,28 @@ const Question = (props) => {
                             I like hugs, but I don't mind giving you space too.
                             Either is fine!
                         </button>
-                        <button className="question-btn">
+                        <button
+                            onClick={props.selectDoggo}
+                            className="question-btn"
+                        >
                             I've answered enough questions, give me doggo!
                         </button>
                     </div>
                     <div className="dog-images">
-                        <label>
+                        <label className="question-labels">
                             Cuddling isn't my thing, we don't have to hug to be
                             best friends{' '}
                         </label>
-                        <img
+                        <motion.img
                             name="noSnuggle"
                             className="dog-img"
                             src={noSnuggle}
                             onClick={imageClicked}
+                            whileHover={{
+                                scale: 1.15,
+                                rotate: 360,
+                                transition: { duration: 0.7 },
+                            }}
                         />
                     </div>
                 </div>

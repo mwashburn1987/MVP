@@ -12,7 +12,9 @@
 .numbered-question {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 .dog-images {
     width: 20vw;
@@ -25,11 +27,17 @@
 .question-buttons-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
 }
 .question-btn {
-    width: 15vw;
-    height: 4vh;
+    width: 8vw;
+    height: auto;
     text-align: center;
-    font-size: 75%;
+    font-family: 'Dosis';
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+label {
+    font-size: 26px;
 }

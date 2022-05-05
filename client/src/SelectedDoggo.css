@@ -1,0 +1,72 @@
+h1 {
+    color: rgb(160, 158, 158);
+}
+h2 {
+    color: rgb(160, 158, 158);
+}
+h3 {
+    font-size: 20px;
+    font-family: 'Roboto';
+    margin-left: 10px;
+    margin-right: 5px;
+    text-align: center;
+    color: rgb(160, 158, 158);
+}
+.dog-selected-modal {
+    width: 75%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: #353d60;
+    border-radius: 45px;
+}
+.Overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dog-select-image {
+    object-fit: cover;
+    width: 27vw;
+    height: auto;
+}
+.dog-select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.humane-container {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#humane-society {
+    font-size: 14px;
+    color: silver;
+    margin-left: 8px;
+}
+.logo-container {
+    margin-top: 10px;
+    display: flex;
+    width: 6vw;
+    height: 3vw;
+    border: 1px solid rgb(27, 26, 26);
+    border-radius: 25%;
+    background-color: #f2cd6e;
+    justify-content: center;
+}
+.selected-logo {
+    width: 4vw;
+    height: auto;
+}

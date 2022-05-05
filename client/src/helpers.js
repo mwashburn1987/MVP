@@ -2,14 +2,16 @@ import axios from 'axios';
 
 let doggos = [];
 
-const getDoggos = () => {
+const getDoggos = () =>
     axios
         .get('http://localhost:8080/breeds')
         .then((res) => {
             doggos = res.data;
+            return res.data;
         })
         .catch((err) => console.log(err));
-};
+
+const returnAllDoggos = () => doggos;
 
 const answerOne = (answer) => {
     const currDoggos = [];
@@ -28,6 +30,7 @@ const answerOne = (answer) => {
         });
         doggos = currDoggos;
     }
+    return doggos;
 };
 
 const answerTwo = (answer) => {
@@ -47,6 +50,7 @@ const answerTwo = (answer) => {
         });
         doggos = currDoggos;
     }
+    return doggos;
 };
 
 const answerThree = (answer) => {
@@ -66,6 +70,7 @@ const answerThree = (answer) => {
         });
         doggos = currDoggos;
     }
+    return doggos;
 };
 
 const answerFour = (answer) => {
@@ -86,6 +91,7 @@ const answerFour = (answer) => {
         });
         doggos = currDoggos;
     }
+    return doggos;
 };
 
 const answerFive = (answer) => {
@@ -105,6 +111,7 @@ const answerFive = (answer) => {
         });
         doggos = currDoggos;
     }
+    return doggos;
 };
 
 const answerSix = (answer) => {
@@ -113,7 +120,6 @@ const answerSix = (answer) => {
         doggos.forEach((dog) => {
             const weights = dog.weight.imperial.split('-');
             const avgWeight = (Number(weights[0]) + Number(weights[1])) / 2;
-            console.log(avgWeight);
             if (avgWeight <= 20) {
                 currDoggos.push(dog);
             }
@@ -123,7 +129,6 @@ const answerSix = (answer) => {
         doggos.forEach((dog) => {
             const weights = dog.weight.imperial.split('-');
             const avgWeight = (Number(weights[0]) + Number(weights[1])) / 2;
-            console.log(avgWeight);
             if (avgWeight > 20 && avgWeight <= 45) {
                 currDoggos.push(dog);
             }
@@ -133,7 +138,6 @@ const answerSix = (answer) => {
         doggos.forEach((dog) => {
             const weights = dog.weight.imperial.split('-');
             const avgWeight = (Number(weights[0]) + Number(weights[1])) / 2;
-            console.log(avgWeight);
             if (avgWeight > 45 && avgWeight <= 70) {
                 currDoggos.push(dog);
             }
@@ -143,14 +147,13 @@ const answerSix = (answer) => {
         doggos.forEach((dog) => {
             const weights = dog.weight.imperial.split('-');
             const avgWeight = (Number(weights[0]) + Number(weights[1])) / 2;
-            console.log(avgWeight);
             if (avgWeight > 70) {
                 currDoggos.push(dog);
             }
         });
         doggos = currDoggos;
     }
-    console.log(doggos);
+    return doggos;
 };
 
 const answerSeven = (answer) => {
@@ -171,6 +174,7 @@ const answerSeven = (answer) => {
         doggos = currDoggos;
     }
     console.log(doggos);
+    return doggos;
 };
 export {
     getDoggos,
@@ -181,4 +185,5 @@ export {
     answerFive,
     answerSix,
     answerSeven,
+    returnAllDoggos,
 };

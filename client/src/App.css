@@ -6,10 +6,6 @@
     background-color: rgb(242, 205, 110);
 }
 
-/* .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-} */
 .logo {
     object-fit: cover;
     width: 12vw;
@@ -45,9 +41,17 @@
         transform: rotate(360deg);
     }
 }
-
 button {
-    font-size: calc(10px + 2vmin);
+    width: 5%;
+    color: rgb(235, 227, 227);
+    height: auto;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+    border-radius: 5px;
+    background-color: #353d60;
+    margin-bottom: 15px;
+    /* width: 50px; */
 }
 
 .intro {
@@ -60,8 +64,12 @@ button {
 }
 .intro-text {
     text-align: center;
-    font-size: medium;
+    font-size: 22px;
 }
 .intro-text-container {
     width: 25vw;
+}
+#find-doggo {
+    position: relative;
+    bottom: 50px;
 }
